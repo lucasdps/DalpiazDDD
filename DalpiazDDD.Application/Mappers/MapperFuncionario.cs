@@ -15,17 +15,7 @@ namespace DalpiazDDD.Application.Mappers
 
         public Funcionario MapperDtoToEntity(FuncionarioDto funcionarioDto)
         {
-            //Convertendo salário bruto para decimal
-            string valor = funcionarioDto.SalarioBruto;
-            // or i.e. string amount = "12,33";
-
-            var c = System.Threading.Thread.CurrentThread.CurrentCulture;
-            var s = c.NumberFormat.CurrencyDecimalSeparator;
-
-            valor = valor.Replace(",", s);
-            valor = valor.Replace(".", s);
-
-            decimal valorConvertido = Convert.ToDecimal(valor);
+            
 
             var funcionario = new Funcionario()
             {
@@ -34,8 +24,9 @@ namespace DalpiazDDD.Application.Mappers
                 Cargo = funcionarioDto.Cargo,
                 DataAdmissao = Convert.ToDateTime( funcionarioDto.DataAdmissao),
                 Matricula = funcionarioDto.Matricula,
-                SalarioBruto = valorConvertido,
-                Nome = funcionarioDto.Nome
+                SalarioBruto = Helper.StringToDecimal(funcionarioDto.SalarioBruto),
+                Nome = funcionarioDto.Nome,
+                TotalPL = Helper.StringToDecimal(funcionarioDto.TotalPL)
             };
 
             return funcionario;
@@ -50,8 +41,9 @@ namespace DalpiazDDD.Application.Mappers
                 Matricula= funcionario.Matricula,
                 Cargo = funcionario.Cargo,
                 AreaAtuacao = funcionario.AreaAtuacao,
-                SalarioBruto= funcionario.SalarioBruto.ToString(),
-                DataAdmissao = funcionario.DataAdmissao.ToShortDateString()
+                SalarioBruto= funcionario.SalarioBruto.ToString().Replace(",", "."),
+                DataAdmissao = funcionario.DataAdmissao.ToString("yyyy-MM-dd"),
+                TotalPL = funcionario.TotalPL.ToString().Replace(",", ".")
             };
 
             return funcionarioDto;
@@ -67,8 +59,9 @@ namespace DalpiazDDD.Application.Mappers
                     Matricula = funcionario.Matricula,
                     Cargo = funcionario.Cargo,
                     AreaAtuacao = funcionario.AreaAtuacao,
-                    SalarioBruto = funcionario.SalarioBruto.ToString(),
-                    DataAdmissao = funcionario.DataAdmissao.ToShortDateString()
+                    SalarioBruto = funcionario.SalarioBruto.ToString().Replace(",","."),
+                    DataAdmissao = funcionario.DataAdmissao.ToString("yyyy-MM-dd"),
+                    TotalPL = funcionario.TotalPL.ToString().Replace(",", ".")
                 });
 
             return dto;

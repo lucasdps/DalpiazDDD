@@ -21,6 +21,11 @@ namespace DalpiazDDD.Infrastructure.CrossCutting.IOC
             builder.RegisterType<RepositoryFuncionario>().As<IRepositoryFuncionario>();
             builder.RegisterType<MapperFuncionario>().As<IMapperFuncionario>();
 
+            builder.RegisterType<ApplicationServiceCalculoFuncionario>().As<IApplicationServiceCalculoFuncionario>();
+            builder.RegisterType<ServiceCalculoFuncionario>().As<IServiceCalculoFuncionario>();
+            builder.RegisterType<MapperCalculoFuncionario>().As<IMapperCalculoFuncionario>();
+
+
             #endregion IOC
         }
     }

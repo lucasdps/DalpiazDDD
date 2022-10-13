@@ -9,7 +9,6 @@ namespace DalpiazDDD.Application.Dtos
 {
     public class FuncionarioDto
     {
-        public static decimal SalarioMinimo = 1000;
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Matricula { get; set; }
@@ -17,8 +16,9 @@ namespace DalpiazDDD.Application.Dtos
         public int Cargo { get; set; }
         public string SalarioBruto { get; set; }
         public string DataAdmissao { get; set; }
+        public string TotalPL { get; set; }
 
-        
+
 
 
     }
