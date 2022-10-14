@@ -20,6 +20,7 @@ namespace DalpiazDDD.Application
 
         public void Add(FuncionarioDto funcionarioDto)
         {
+            funcionarioDto.Id = null;
             var funcionario = mapperFuncionario.MapperDtoToEntity(funcionarioDto);
             serviceFuncionario.Add(funcionario);
         }

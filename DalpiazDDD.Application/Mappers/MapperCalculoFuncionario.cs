@@ -15,11 +15,12 @@ namespace DalpiazDDD.Application.Mappers
         {
             var dto =
                new CalculoFuncionarioDto
-               { 
+               {
                    TotalDisponibilizado = CalculoFuncionarios.TotalDisponibilizado,
                    TotalDistribuido = CalculoFuncionarios.TotalDistribuido,
                    TotalFuncionarios = CalculoFuncionarios.TotalFuncionarios,
-                   MontanteLucro = CalculoFuncionarios.MontanteLucro
+                   MontanteLucro = CalculoFuncionarios.MontanteLucro,
+                   Saldo = CalculoFuncionarios.Saldo
                };
 
             var funcionariosDto = CalculoFuncionarios.funcionarios.Select(cf =>

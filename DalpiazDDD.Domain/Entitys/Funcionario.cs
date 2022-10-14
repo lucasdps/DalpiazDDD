@@ -4,7 +4,7 @@ namespace DalpiazDDD.Domain.Entitys
 {
     public class Funcionario
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Nome { get; set; }
         public string Matricula { get; set; }
         public int AreaAtuacao { get; set; }

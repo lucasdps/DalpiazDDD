@@ -11,8 +11,7 @@ namespace DalpiazDDD.Application
     {
         public static decimal StringToDecimal(string valor)
         {
-            
-            // or i.e. string amount = "12,33";
+           valor = string.IsNullOrEmpty(valor) ? "0" : valor;
 
             var c = System.Threading.Thread.CurrentThread.CurrentCulture;
             var s = c.NumberFormat.CurrencyDecimalSeparator;
